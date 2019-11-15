@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,  {Component} from 'react';
 import './App.css';
+import Main from './components/Main';
+import ContextManager from './components/ContextManager';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App  = () => {
+    return <ContextManager AppComponent={<Main />}/>;
 }
 
-export default App;
+export default App ;
+
+
+// class App  extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             activeProviders: ['ContextContext']
+//         }
+//         newProvider('ContextContext', this.state, {updateContextProviders: this.updateContextProviders.bind(this)});
+//     }
+
+//     updateContextProviders () {
+
+
+//         const newProviders = [];
+//         //Do stuff here to see which providers should be rendered
+//         this.setState({activeProviders: ['ContextManagerContext', ...newProviders]} );
+//     }
+
+//     renderNestedProviders (AppComponentToBeWrapped) {
+//         const {activeProviders} = this.state;
+
+//         let PrevComponent = AppComponentToBeWrapped;
+//         activeProviders.forEach( (contextName) => {
+//                 PrevComponent  = <ProviderStateContainer children={PrevComponent} contextName={contextName} />
+//         });
+
+//         return PrevComponent;
+//     }
+
+//     componentDidMount () {
+
+
+//         // newProvider('' )
+//     }
+
+
+
+//     render() {
+
+//         return (
+//             this.renderNestedProviders(<Main/>)
+//         )
+
+//     }
+// }
+
+
+// export default App;
